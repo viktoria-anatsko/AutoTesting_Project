@@ -12,4 +12,13 @@ public class StaticProvider {
                 {2, 3, 5}
         };
     }
+
+    @DataProvider(name = "Data for Division test", parallel = true)
+    public static Object[][] dataForDivTest() {
+        return new Object[][] {
+                {18, 3, 6},
+                {-122, 2, -61},
+                {99, 11, 9}
+        };
+    }
 }

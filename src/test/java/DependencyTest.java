@@ -20,6 +20,6 @@ public class DependencyTest {
 
     @Test (dependsOnMethods = {"stepb", "astepa2"})
     public void stepa12() {
-        System.out.println("stepa11...");
+        System.out.println("stepa12...");
     }
 }
