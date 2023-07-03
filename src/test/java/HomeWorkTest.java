@@ -1,8 +1,11 @@
 import data.StaticProvider;
 import org.testng.Assert;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class HomeWorkTest extends BaseTest {
+    private int attempt = 1;
 
     @Test(enabled = false)
     public void divTest_1() {
@@ -66,5 +69,23 @@ public class HomeWorkTest extends BaseTest {
     public void dataProviderTest(int a, int b, int expectedValue) throws InterruptedException {
         Thread.sleep(1000);
         Assert.assertEquals(calculator.div(a, b), expectedValue, "Values aren't the same.");
+    }
+
+    @Parameters({"login", "psw"})
+    @Test
+    public void paramTest(String login, String psw) {
+        System.out.println("Login: " + login + " Password: " + psw);
+    }
+
+    @Test(retryAnalyzer = Retry.class)
+    public void retryTest() {
+        if (attempt == 5) {
+            System.out.println("Attempt is: " + attempt);
+            Assert.assertTrue(true);
+        } else {
+            attempt++;
+            System.out.println("Attempt is: " + attempt);
+            throw new NullPointerException();
+        }
     }
 }
