@@ -18,6 +18,7 @@ public class SmokeTestHomework {
         BrowserFactory browserFactory = new BrowserFactory();
         driver = browserFactory.getDriver();
     }
+
     @Test
     public void calcSolelecTest() throws InterruptedException {
         driver.get("https://kermi-fko.ru/raschety/Calc-Rehau-Solelec.aspx");
