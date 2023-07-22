@@ -4,15 +4,15 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class SideMenuPage extends BasePage {
-    private  final By sidebarLocator = By.id("sidebar");
+public class BurgerMenuPage extends BasePage {
+    private  final By burgerMenuLocator = By.id("react-burger-menu-btn");
 
-    public SideMenuPage(WebDriver driver) {
+    public BurgerMenuPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     protected By getPageIdentifier() {
-        return sidebarLocator;
+        return burgerMenuLocator;
     }
 }
