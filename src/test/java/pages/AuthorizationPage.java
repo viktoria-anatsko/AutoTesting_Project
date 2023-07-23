@@ -9,7 +9,6 @@ public class AuthorizationPage extends BasePage {
     private final By userNameInputLocator = By.id("user-name");
     private final By pswInputLocator = By.id("password");
     private final By loginButtonLocator = By.id("login-button");
-    private final By errorTextLocator = By.className("error-message-container error");
 
     public AuthorizationPage(WebDriver driver) {
         super(driver);
@@ -30,10 +29,6 @@ public class AuthorizationPage extends BasePage {
 
     public WebElement getLoginButton() {
         return driver.findElement(loginButtonLocator);
-    }
-
-    public WebElement getErrorTextElement() {
-        return driver.findElement(errorTextLocator);
     }
 
     public void authorization(String username, String psw) {

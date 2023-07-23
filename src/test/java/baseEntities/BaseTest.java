@@ -8,7 +8,7 @@ import steps.AuthorizationStep;
 import steps.ShoppingStep;
 import utils.configurations.ReadProperties;
 
-public class BaseTest_ {
+public class BaseTest {
     protected WebDriver driver;
 
     protected AuthorizationStep authorizationStep;

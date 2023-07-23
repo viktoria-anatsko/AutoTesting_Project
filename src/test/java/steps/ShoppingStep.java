@@ -1,10 +1,10 @@
 package steps;
 
-import baseEntities.BaseStep_;
+import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
 import pages.*;
 
-public class ShoppingStep extends BaseStep_ {
+public class ShoppingStep extends BaseStep {
 
     public ShoppingStep(WebDriver driver) {
         super(driver);
@@ -14,6 +14,12 @@ public class ShoppingStep extends BaseStep_ {
         inventoryPage.addToCart();
 
         return inventoryPage;
+    }
+
+    public CartPage cartCheckout() {
+        shoppingCartContainerPage.clickToShoppingCartLink();
+
+        return cartPage;
     }
 
     public CheckoutOnePage purchaseConfirmation() {

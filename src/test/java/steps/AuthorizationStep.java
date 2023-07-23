@@ -1,11 +1,11 @@
 package steps;
 
-import baseEntities.BaseStep_;
+import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
 import pages.AuthorizationPage;
 import pages.InventoryPage;
 
-public class AuthorizationStep extends BaseStep_ {
+public class AuthorizationStep extends BaseStep {
 
     public AuthorizationStep(WebDriver driver) {
         super(driver);
@@ -15,11 +15,5 @@ public class AuthorizationStep extends BaseStep_ {
         authorizationPage.authorization(username, psw);
 
         return inventoryPage;
-    }
-
-    public AuthorizationPage negativeAuthorization(String username, String psw) {
-        authorizationPage.authorization(username, psw);
-
-        return authorizationPage;
     }
 }

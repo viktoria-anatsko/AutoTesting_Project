@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class InventoryPage extends BasePage {
     private final static String pagePath = "/inventory.html";
 
-    private final By headerTitleLabelLocator = By.xpath("//*[@class='title']");
+    private final By headerTitleLabelLocator = By.cssSelector(".title");
 
     private final By buttonAddToCart_1 = By.id("add-to-cart-sauce-labs-backpack");
 

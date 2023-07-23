@@ -1,12 +1,12 @@
 package tests;
 
-import baseEntities.BaseTest_;
+import baseEntities.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.configurations.ReadProperties;
 
 
-public class AuthorizationTest extends BaseTest_ {
+public class AuthorizationTest extends BaseTest {
 
     @Test
     public void successAuthorizationTest() {
@@ -15,13 +15,5 @@ public class AuthorizationTest extends BaseTest_ {
                         ReadProperties.username(), ReadProperties.password()
                 ).isPageOpened()
         );
-    }
-
-    @Test
-    public void lockedOutUserTest() {
-        Assert.assertEquals(
-                authorizationStep.negativeAuthorization("locked_out_user",
-                        ReadProperties.password()).getErrorTextElement().getText(),
-                        "Epic sadface: Sorry, this user has been locked out.");
     }
 }

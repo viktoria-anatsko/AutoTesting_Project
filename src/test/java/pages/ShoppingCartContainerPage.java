@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class ShoppingCartContainerPage extends BasePage {
     private final By shoppingCartContainerLocator = By.id("shopping_cart_container");
-    private final By shoppingCartBadgeLocator = By.xpath("//*[@class='shopping_cart_badge']");
+    private final By shoppingCartBadgeLocator = By.className("shopping_cart_badge");
 
     public ShoppingCartContainerPage(WebDriver driver) {
         super(driver);
@@ -24,5 +24,9 @@ public class ShoppingCartContainerPage extends BasePage {
 
     public WebElement getShoppingCartBadgeElement() {
         return driver.findElement(shoppingCartBadgeLocator);
+    }
+
+    public void clickToShoppingCartLink() {
+        getShoppingCartBadgeElement().click();
     }
 }
