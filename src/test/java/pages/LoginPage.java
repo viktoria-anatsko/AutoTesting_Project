@@ -1,9 +1,13 @@
 package pages;
 
 import baseEntities.BasePage;
+import elements.Button;
+import elements.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.awt.*;
 
 public class LoginPage extends BasePage {
     private final By emailInputLocator = By.id("name");
@@ -21,20 +25,20 @@ public class LoginPage extends BasePage {
         return logInButtonLocator;
     }
 
-    public WebElement getEmailInput() {
-        return waitService.waitForExists(emailInputLocator);
+    public Input getEmailInput() {
+        return new Input(driver, emailInputLocator);
     }
 
-    public WebElement getPswInput() {
-        return waitService.waitForExists(pswInputLocator);
+    public Input getPswInput() {
+        return new Input(driver, pswInputLocator);
     }
 
     public boolean isPswInputDisplayed() {
-        return waitService.waitForVisibility(getPswInput()).isDisplayed();
+        return getPswInput().isDisplayed();
     }
 
-    public WebElement getLogInButton() {
-        return driver.findElement(logInButtonLocator);
+    public Button getLogInButton() {
+        return new Button(driver, logInButtonLocator);
     }
 
     public void setEmail(String value) {
