@@ -9,6 +9,7 @@ public class DashboardPage extends BasePage {
     private final static String pagePath = "/index.php?/dashboard/";
 
     private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
+    private final By projectNameLocator = By.xpath("//*[@href='index.php?/projects/overview/1']");
 
     public TopMenuPage topMenuPage;
     public SideMenuPage sideMenuPage;
@@ -31,5 +32,9 @@ public class DashboardPage extends BasePage {
 
     public WebElement getHeaderTitle() {
         return driver.findElement(headerTitleLabelLocator);
+    }
+
+    public WebElement getProjectName() {
+        return driver.findElement(projectNameLocator);
     }
 }

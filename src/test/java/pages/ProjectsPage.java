@@ -12,6 +12,7 @@ public class ProjectsPage extends BasePage {
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.className("page_title");
     private final By projectsTableLocator = By.cssSelector("#content-inner table");
+    private final By editProjectLinkLocator = By.xpath("//*[@href='index.php?/admin/projects/edit/1/1']");
 
     // Блок инициализации
     public ProjectsPage(WebDriver driver) {
@@ -31,6 +32,10 @@ public class ProjectsPage extends BasePage {
     // Блок атомарных методов
     public WebElement getHeaderTitle() {
         return driver.findElement(headerTitleLabelLocator);
+    }
+
+    public WebElement getEditProjectLink() {
+        return driver.findElement(editProjectLinkLocator);
     }
 
     public Table getProjectsTable() {
