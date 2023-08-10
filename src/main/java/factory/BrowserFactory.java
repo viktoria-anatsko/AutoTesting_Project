@@ -9,6 +9,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import utils.configurations.ReadProperties;
 
+import java.time.Duration;
+
 public class BrowserFactory {
     private WebDriver driver = null;
     private DriverManagerType driverManagerType =null;
@@ -34,6 +36,7 @@ public class BrowserFactory {
     }
 
     public WebDriver getDriver() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(0));
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
 

@@ -3,6 +3,8 @@ package tests;
 import baseEntities.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.DashboardPage;
+import pages.LoginPage;
 import utils.configurations.ReadProperties;
 
 public class LoginTest extends BaseTest {
@@ -35,5 +37,12 @@ public class LoginTest extends BaseTest {
                 loginStep.negativeLogin(ReadProperties.username(), "123").getErrorFieldTextElement().getText(),
                 "Password is too short (5 characters required).",
                 "Неверное сообщение об ошибке");
+    }
+
+    @Test
+    public void loadableTest() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login(ReadProperties.username(), ReadProperties.password());
+        DashboardPage dashboardPage = new DashboardPage(driver);
     }
 }
