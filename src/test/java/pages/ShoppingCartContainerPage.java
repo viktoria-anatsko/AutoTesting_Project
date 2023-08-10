@@ -4,10 +4,15 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class ShoppingCartContainerPage extends BasePage {
-    private final By shoppingCartContainerLocator = By.id("shopping_cart_container");
-    private final By shoppingCartBadgeLocator = By.className("shopping_cart_badge");
+
+    @FindBy (id = "shopping_cart_container")
+    public WebElement shoppingCartContainer;
+
+    @FindBy (className = "shopping_cart_badge")
+    public WebElement shoppingCartBadge;
 
     public ShoppingCartContainerPage(WebDriver driver) {
         super(driver);
@@ -15,18 +20,10 @@ public class ShoppingCartContainerPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return shoppingCartContainerLocator;
-    }
-
-    public WebElement getShoppingCartContainerElement() {
-        return driver.findElement(shoppingCartContainerLocator);
-    }
-
-    public WebElement getShoppingCartBadgeElement() {
-        return driver.findElement(shoppingCartBadgeLocator);
+        return By.id("shopping_cart_container");
     }
 
     public void clickToShoppingCartLink() {
-        getShoppingCartBadgeElement().click();
+        shoppingCartBadge.click();
     }
 }

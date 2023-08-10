@@ -4,13 +4,16 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class InventoryPage extends BasePage {
     private final static String pagePath = "/inventory.html";
 
-    private final By headerTitleLabelLocator = By.cssSelector(".title");
+    @FindBy (css = ".title")
+    public WebElement headerTitleLabel;
 
-    private final By buttonAddToCart_1 = By.id("add-to-cart-sauce-labs-backpack");
+    @FindBy (id = "add-to-cart-sauce-labs-backpack")
+    public WebElement buttonAddToCart_1;
 
     public ShoppingCartContainerPage shoppingCartContainerPage;
 
@@ -25,22 +28,10 @@ public class InventoryPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return headerTitleLabelLocator;
-    }
-
-    public void openPageByUrl() {
-        super.openPageByUrl(pagePath);
-    }
-
-    public WebElement getHeaderTitle() {
-        return driver.findElement((headerTitleLabelLocator));
-    }
-
-    public WebElement getButtonAddToCart_1() {
-        return driver.findElement(buttonAddToCart_1);
+        return By.cssSelector(".title");
     }
 
     public void addToCart() {
-        getButtonAddToCart_1().click();
+        buttonAddToCart_1.click();
     }
 }

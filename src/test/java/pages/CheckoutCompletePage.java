@@ -4,11 +4,13 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CheckoutCompletePage extends InventoryPage {
     private final static String pagePath = "/checkout-complete.html";
 
-    private final By backHomeButtonLocator = By.id("back-to-products");
+    @FindBy(id = "back-to-products")
+    public WebElement backHomeButton;
 
     public CheckoutCompletePage(WebDriver driver) {
         super(driver);
@@ -16,14 +18,10 @@ public class CheckoutCompletePage extends InventoryPage {
 
     @Override
     protected By getPageIdentifier() {
-        return backHomeButtonLocator;
+        return By.id("back-to-products");
     }
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
-    }
-
-    public WebElement getBackHomeButtonLocator() {
-        return driver.findElement(backHomeButtonLocator);
     }
 }

@@ -4,14 +4,22 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CheckoutOnePage extends InventoryPage {
     private final static String pagePath = "/checkout-step-one.html";
 
-    private final By continueButtonLocator = By.id("continue");
-    private final By firstNameInputLocator = By.id("first-name");
-    private final By lastNameInputLocator = By.id("last-name");
-    private final By zipCodeInputLocator = By.id("postal-code");
+    @FindBy (id = "continue")
+    public WebElement continueButton;
+
+    @FindBy (id = "first-name")
+    public WebElement firstNameInput;
+
+    @FindBy (id = "last-name")
+    public WebElement lastNameInput;
+
+    @FindBy (id = "postal-code")
+    public WebElement zipCodeInput;
 
     public CheckoutOnePage(WebDriver driver) {
         super(driver);
@@ -19,33 +27,17 @@ public class CheckoutOnePage extends InventoryPage {
 
     @Override
     protected By getPageIdentifier() {
-        return continueButtonLocator;
+        return By.id("continue");
     }
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
 
-    public WebElement getContinueButton() {
-        return driver.findElement(continueButtonLocator);
-    }
-
-    public WebElement getFirstNameInput() {
-        return driver.findElement(firstNameInputLocator);
-    }
-
-    public WebElement getLastNameInput() {
-        return driver.findElement(lastNameInputLocator);
-    }
-
-    public WebElement getZipCodeInput() {
-        return driver.findElement(zipCodeInputLocator);
-    }
-
     public void addCartInformation() {
-        getFirstNameInput().sendKeys("Duke");
-        getLastNameInput().sendKeys("Poul");
-        getZipCodeInput().sendKeys("453");
-        getContinueButton().click();
+        firstNameInput.sendKeys("Duke");
+        lastNameInput.sendKeys("Poul");
+        zipCodeInput.sendKeys("453");
+        continueButton.click();
     }
 }

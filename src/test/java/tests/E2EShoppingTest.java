@@ -16,7 +16,7 @@ public class E2EShoppingTest extends BaseTest {
                 ).isPageOpened());
 
         Assert.assertEquals(shoppingStep.successShopping()
-                .shoppingCartContainerPage.getShoppingCartBadgeElement().getText(), "1");
+                .shoppingCartContainerPage.shoppingCartBadge.getText(), "1");
         Assert.assertTrue(shoppingStep.cartCheckout().isPageOpened());
         Assert.assertTrue(shoppingStep.purchaseConfirmation().isPageOpened());
         Assert.assertTrue(shoppingStep.successCartInformation().isPageOpened());

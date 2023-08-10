@@ -3,9 +3,13 @@ package pages;
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class BurgerMenuPage extends BasePage {
-    private  final By burgerMenuLocator = By.id("react-burger-menu-btn");
+
+    @FindBy (id = "react-burger-menu-btn")
+    public WebElement burgerMenu;
 
     public BurgerMenuPage(WebDriver driver) {
         super(driver);
@@ -13,6 +17,6 @@ public class BurgerMenuPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return burgerMenuLocator;
+        return By.id("react-burger-menu-btn");
     }
 }

@@ -4,11 +4,18 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AuthorizationPage extends BasePage {
-    private final By userNameInputLocator = By.id("user-name");
-    private final By pswInputLocator = By.id("password");
-    private final By loginButtonLocator = By.id("login-button");
+
+    @FindBy (id = "user-name")
+    public WebElement userNameInput;
+
+    @FindBy (id = "password")
+    public WebElement pswInput;
+
+    @FindBy (id = "login-button")
+    public WebElement loginButton;
 
     public AuthorizationPage(WebDriver driver) {
         super(driver);
@@ -16,24 +23,12 @@ public class AuthorizationPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return loginButtonLocator;
-    }
-
-    public WebElement getUserNameInput() {
-        return driver.findElement(userNameInputLocator);
-    }
-
-    public WebElement getPswInput() {
-        return driver.findElement(pswInputLocator);
-    }
-
-    public WebElement getLoginButton() {
-        return driver.findElement(loginButtonLocator);
+        return By.id("login-button");
     }
 
     public void authorization(String username, String psw) {
-        getUserNameInput().sendKeys(username);
-        getPswInput().sendKeys(psw);
-        getLoginButton().click();
+        userNameInput.sendKeys(username);
+        pswInput.sendKeys(psw);
+        loginButton.click();
     }
 }
