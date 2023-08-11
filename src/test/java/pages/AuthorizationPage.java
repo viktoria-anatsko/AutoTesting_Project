@@ -31,6 +31,21 @@ public class AuthorizationPage extends BasePage {
         return driver.findElement(loginButtonLocator);
     }
 
+    public AuthorizationPage setUserName(String name) {
+        getUserNameInput().sendKeys(name);
+        return this;
+    }
+
+    public AuthorizationPage setPassword(String password) {
+        getPswInput().sendKeys(password);
+        return this;
+    }
+
+    public InventoryPage successAuthorization() {
+        getLoginButton().click();
+        return new InventoryPage(driver);
+    }
+
     public void authorization(String username, String psw) {
         getUserNameInput().sendKeys(username);
         getPswInput().sendKeys(psw);

@@ -27,7 +27,8 @@ public class CheckoutTwoPage extends InventoryPage {
         return driver.findElement(finishButtonLocator);
     }
 
-    public void finishShopping() {
+    public CheckoutCompletePage finishShopping() {
         getFinishButton().click();
+        return new CheckoutCompletePage(driver);
     }
 }

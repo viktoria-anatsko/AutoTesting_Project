@@ -42,10 +42,15 @@ public class CheckoutOnePage extends InventoryPage {
         return driver.findElement(zipCodeInputLocator);
     }
 
-    public void addCartInformation() {
+    public CheckoutOnePage addCartInformation() {
         getFirstNameInput().sendKeys("Duke");
         getLastNameInput().sendKeys("Poul");
         getZipCodeInput().sendKeys("453");
+        return this;
+    }
+
+    public CheckoutTwoPage clickToContinueButton() {
         getContinueButton().click();
+        return new CheckoutTwoPage(driver);
     }
 }

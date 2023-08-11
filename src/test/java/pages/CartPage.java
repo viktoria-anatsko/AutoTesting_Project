@@ -27,7 +27,8 @@ public class CartPage extends InventoryPage {
         return driver.findElement(checkoutButtonLocator);
     }
 
-    public void confirmPurchase() {
+    public CheckoutOnePage confirmPurchase() {
         getCheckoutButton().click();
+        return new CheckoutOnePage(driver);
     }
 }

@@ -12,15 +12,10 @@ public class InventoryPage extends BasePage {
 
     private final By buttonAddToCart_1 = By.id("add-to-cart-sauce-labs-backpack");
 
-    public ShoppingCartContainerPage shoppingCartContainerPage;
-
-    public BurgerMenuPage burgerMenuPage;
+    private final By shoppingCartContainerLocator = By.id("shopping_cart_container");
 
     public InventoryPage(WebDriver driver) {
         super(driver);
-
-        shoppingCartContainerPage = new ShoppingCartContainerPage(driver);
-        burgerMenuPage = new BurgerMenuPage(driver);
     }
 
     @Override
@@ -40,7 +35,17 @@ public class InventoryPage extends BasePage {
         return driver.findElement(buttonAddToCart_1);
     }
 
-    public void addToCart() {
+    public WebElement getShoppingCartContainerLocator() {
+        return driver.findElement(shoppingCartContainerLocator);
+    }
+
+    public InventoryPage addToCart() {
         getButtonAddToCart_1().click();
+        return this;
+    }
+
+    public CartPage clickToShoppingCart() {
+        getShoppingCartContainerLocator().click();
+        return new CartPage(driver);
     }
 }
