@@ -1,25 +1,22 @@
 package pages;
 
-import baseEntities.BasePage;
+import factory.BrowserSingleton;
 import models.User;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import services.WaitService;
 
-public class LoginPage extends BasePage {
+public class LoginPage {
     private final By emailInputLocator = By.id("name");
     private final By pswInputLocator = By.id("password");
     private final By logInButtonLocator = By.id("button_primary");
     private final By errorTextLocator = By.className("error-text");
     private final By errorFieldTextLocator = By.className("loginpage-message");
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
+    private WaitService waitService;
 
-    @Override
-    protected By getPageIdentifier() {
-        return logInButtonLocator;
+    public LoginPage() {
+        waitService = new WaitService();
     }
 
     public WebElement getEmailInput() {
@@ -35,7 +32,7 @@ public class LoginPage extends BasePage {
     }
 
     public WebElement getLogInButton() {
-        return driver.findElement(logInButtonLocator);
+        return BrowserSingleton.getInstance().driver.findElement(logInButtonLocator);
     }
 
     public void setEmail(String value) {
@@ -43,11 +40,11 @@ public class LoginPage extends BasePage {
     }
 
     public WebElement getErrorTextElement() {
-        return driver.findElement(errorTextLocator);
+        return BrowserSingleton.getInstance().driver.findElement(errorTextLocator);
     }
 
     public WebElement getErrorFieldTextElement() {
-        return driver.findElement(errorFieldTextLocator);
+        return BrowserSingleton.getInstance().driver.findElement(errorFieldTextLocator);
     }
 
     public void login(User user) {
