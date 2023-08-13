@@ -33,10 +33,10 @@ public class AddProjectPage extends BasePage {
     }
 
     public void fillForm(Project project) {
-        project.setProjectName(project.getProjectName());
-        project.setAnnouncement(project.getAnnouncement());
-        project.setFlag(project.isFlag());
-        project.setProjectType(project.getProjectType());
-        project.setDate(project.getDate());
+//        project.setProjectName(project.getProjectName());
+//        project.setAnnouncement(project.getAnnouncement());
+//        project.setFlag(project.isFlag());
+//        project.setProjectType(project.getProjectType());
+//        project.setDate(project.getDate());
     }
 }
