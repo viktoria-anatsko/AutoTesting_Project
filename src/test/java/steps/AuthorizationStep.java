@@ -1,6 +1,7 @@
 package steps;
 
 import baseEntities.BaseStep;
+import models.User;
 import org.openqa.selenium.WebDriver;
 import pages.AuthorizationPage;
 import pages.InventoryPage;
@@ -11,8 +12,8 @@ public class AuthorizationStep extends BaseStep {
         super(driver);
     }
 
-    public InventoryPage successAuthorization(String username, String psw) {
-        authorizationPage.authorization(username, psw);
+    public InventoryPage successAuthorization(User user) {
+        authorizationPage.authorization(user);
 
         return inventoryPage;
     }
