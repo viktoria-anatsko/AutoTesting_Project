@@ -12,12 +12,12 @@ public class DataHelper {
 
         return user;
     }
-
-    public static User getStandartUser() {
-        User user = new User();
-        user.setEmail(ReadProperties.username());
-        user.setPassword(ReadProperties.password());
-
-        return user;
-    }
+//
+//    public static User getStandartUser() {
+//        User user = new User();
+//        user.setEmail(ReadProperties.username());
+//        user.setPassword(ReadProperties.password());
+//
+//        return user;
+//    }
 }
