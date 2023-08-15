@@ -2,16 +2,20 @@ package factory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import utils.configurations.ReadProperties;
+import utils.configuration.ReadProperties;
 
 import java.time.Duration;
 
 public class BrowserFactory {
+    Logger logger = LogManager.getLogger(BrowserFactory.class);
+
     private WebDriver driver = null;
     private DriverManagerType driverManagerType =null;
 
@@ -31,7 +35,7 @@ public class BrowserFactory {
                 driver = new FirefoxDriver(getFirefoxOptions());
                 break;
             default:
-                System.out.println("Browser " + ReadProperties.browserName() + " is not supported.");
+                logger.error("Browser " + ReadProperties.browserName() + " is not supported.");
                 break;
         }
     }
@@ -47,12 +51,14 @@ public class BrowserFactory {
 
     public ChromeOptions getChromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
+
         chromeOptions.setHeadless(false);
         chromeOptions.addArguments("--disable-gpu");
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--silent");
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--incognito");
+        chromeOptions.addArguments("--headless=new");
 
         return chromeOptions;
     }

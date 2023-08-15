@@ -8,9 +8,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import steps.LoginStep;
-import utils.configurations.ReadProperties;
+import utils.configuration.ReadProperties;
 
-@Listeners(InvokedListener.class)
 public class BaseTest {
     protected WebDriver driver;
 
@@ -20,22 +19,14 @@ public class BaseTest {
     public void setUp(ITestContext iTestContext) {
         BrowserFactory browserFactory = new BrowserFactory();
         driver = browserFactory.getDriver();
-        this.setDriverToContext(iTestContext, driver);
 
         loginStep = new LoginStep(driver);
 
         driver.get(ReadProperties.getUrl());
     }
 
-    public static void setDriverToContext(ITestContext iTestContext, WebDriver driver){
-        iTestContext.setAttribute("WebDriver", driver);
-    }
-
     @AfterMethod
-    public void tearDown(ITestResult result) {
-        if (!result.isSuccess()) {
-            System.out.println("Make screenshot");
-        }
+    public void tearDown() {
         driver.quit();
     }
 }

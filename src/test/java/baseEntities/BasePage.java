@@ -3,7 +3,7 @@ package baseEntities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import services.WaitService;
-import utils.configurations.ReadProperties;
+import utils.configuration.ReadProperties;
 
 public abstract class BasePage {
     protected WebDriver driver;
