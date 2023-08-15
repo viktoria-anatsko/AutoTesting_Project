@@ -3,6 +3,7 @@ package models;
 import lombok.*;
 
 @Data
+@NoArgsConstructor(force = true)
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class User {
