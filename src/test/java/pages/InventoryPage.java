@@ -1,9 +1,10 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class InventoryPage extends BasePage {
     private final static String pagePath = "/inventory.html";
@@ -16,11 +17,11 @@ public class InventoryPage extends BasePage {
 
     public BurgerMenuPage burgerMenuPage;
 
-    public InventoryPage(WebDriver driver) {
-        super(driver);
+    public InventoryPage() {
+        super();
 
-        shoppingCartContainerPage = new ShoppingCartContainerPage(driver);
-        burgerMenuPage = new BurgerMenuPage(driver);
+        shoppingCartContainerPage = new ShoppingCartContainerPage();
+        burgerMenuPage = new BurgerMenuPage();
     }
 
     @Override
@@ -32,12 +33,12 @@ public class InventoryPage extends BasePage {
         super.openPageByUrl(pagePath);
     }
 
-    public WebElement getHeaderTitle() {
-        return driver.findElement((headerTitleLabelLocator));
+    public SelenideElement getHeaderTitle() {
+        return $(headerTitleLabelLocator);
     }
 
-    public WebElement getButtonAddToCart_1() {
-        return driver.findElement(buttonAddToCart_1);
+    public SelenideElement getButtonAddToCart_1() {
+        return $(buttonAddToCart_1);
     }
 
     public void addToCart() {

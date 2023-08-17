@@ -1,11 +1,8 @@
 package baseEntities;
 
-import org.openqa.selenium.WebDriver;
 import pages.*;
 
 public class BaseStep {
-    protected WebDriver driver;
-
     protected AuthorizationPage authorizationPage;
     protected InventoryPage inventoryPage;
 
@@ -15,15 +12,13 @@ public class BaseStep {
     protected CheckoutTwoPage checkoutTwoPage;
     protected CheckoutCompletePage checkoutCompletePage;
 
-    public BaseStep(WebDriver driver) {
-        this.driver = driver;
-
-        authorizationPage = new AuthorizationPage(driver);
-        inventoryPage = new InventoryPage(driver);
-        shoppingCartContainerPage = new ShoppingCartContainerPage(driver);
-        cartPage = new CartPage(driver);
-        checkoutOnePage = new CheckoutOnePage(driver);
-        checkoutTwoPage = new CheckoutTwoPage(driver);
-        checkoutCompletePage = new CheckoutCompletePage(driver);
+    public BaseStep() {
+        authorizationPage = new AuthorizationPage();
+        inventoryPage = new InventoryPage();
+        shoppingCartContainerPage = new ShoppingCartContainerPage();
+        cartPage = new CartPage();
+        checkoutOnePage = new CheckoutOnePage();
+        checkoutTwoPage = new CheckoutTwoPage();
+        checkoutCompletePage = new CheckoutCompletePage();
     }
 }

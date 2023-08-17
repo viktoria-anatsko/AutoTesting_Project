@@ -1,17 +1,18 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class AuthorizationPage extends BasePage {
     private final By userNameInputLocator = By.id("user-name");
     private final By pswInputLocator = By.id("password");
     private final By loginButtonLocator = By.id("login-button");
 
-    public AuthorizationPage(WebDriver driver) {
-        super(driver);
+    public AuthorizationPage() {
+        super();
     }
 
     @Override
@@ -19,21 +20,21 @@ public class AuthorizationPage extends BasePage {
         return loginButtonLocator;
     }
 
-    public WebElement getUserNameInput() {
-        return driver.findElement(userNameInputLocator);
+    public SelenideElement getUserNameInput() {
+        return $(userNameInputLocator);
     }
 
-    public WebElement getPswInput() {
-        return driver.findElement(pswInputLocator);
+    public SelenideElement getPswInput() {
+        return $(pswInputLocator);
     }
 
-    public WebElement getLoginButton() {
-        return driver.findElement(loginButtonLocator);
+    public SelenideElement getLoginButton() {
+        return $(loginButtonLocator);
     }
 
     public void authorization(String username, String psw) {
-        getUserNameInput().sendKeys(username);
-        getPswInput().sendKeys(psw);
+        getUserNameInput().setValue(username);
+        getPswInput().setValue(psw);
         getLoginButton().click();
     }
 }

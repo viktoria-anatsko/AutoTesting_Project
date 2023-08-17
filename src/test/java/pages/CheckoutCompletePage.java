@@ -1,17 +1,17 @@
 package pages;
 
-import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class CheckoutCompletePage extends InventoryPage {
     private final static String pagePath = "/checkout-complete.html";
 
     private final By backHomeButtonLocator = By.id("back-to-products");
 
-    public CheckoutCompletePage(WebDriver driver) {
-        super(driver);
+    public CheckoutCompletePage() {
+        super();
     }
 
     @Override
@@ -23,7 +23,7 @@ public class CheckoutCompletePage extends InventoryPage {
         super.openPageByUrl(pagePath);
     }
 
-    public WebElement getBackHomeButtonLocator() {
-        return driver.findElement(backHomeButtonLocator);
+    public SelenideElement getBackHomeButtonLocator() {
+        return $(backHomeButtonLocator);
     }
 }

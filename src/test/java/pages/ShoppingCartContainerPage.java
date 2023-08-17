@@ -1,16 +1,17 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class ShoppingCartContainerPage extends BasePage {
     private final By shoppingCartContainerLocator = By.id("shopping_cart_container");
     private final By shoppingCartBadgeLocator = By.className("shopping_cart_badge");
 
-    public ShoppingCartContainerPage(WebDriver driver) {
-        super(driver);
+    public ShoppingCartContainerPage() {
+        super();
     }
 
     @Override
@@ -18,12 +19,12 @@ public class ShoppingCartContainerPage extends BasePage {
         return shoppingCartContainerLocator;
     }
 
-    public WebElement getShoppingCartContainerElement() {
-        return driver.findElement(shoppingCartContainerLocator);
+    public SelenideElement getShoppingCartContainerElement() {
+        return $(shoppingCartContainerLocator);
     }
 
-    public WebElement getShoppingCartBadgeElement() {
-        return driver.findElement(shoppingCartBadgeLocator);
+    public SelenideElement getShoppingCartBadgeElement() {
+        return $(shoppingCartBadgeLocator);
     }
 
     public void clickToShoppingCartLink() {

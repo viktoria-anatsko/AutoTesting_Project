@@ -1,9 +1,9 @@
 package pages;
 
-import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class CheckoutOnePage extends InventoryPage {
     private final static String pagePath = "/checkout-step-one.html";
@@ -13,8 +13,8 @@ public class CheckoutOnePage extends InventoryPage {
     private final By lastNameInputLocator = By.id("last-name");
     private final By zipCodeInputLocator = By.id("postal-code");
 
-    public CheckoutOnePage(WebDriver driver) {
-        super(driver);
+    public CheckoutOnePage() {
+        super();
     }
 
     @Override
@@ -26,26 +26,26 @@ public class CheckoutOnePage extends InventoryPage {
         super.openPageByUrl(pagePath);
     }
 
-    public WebElement getContinueButton() {
-        return driver.findElement(continueButtonLocator);
+    public SelenideElement getContinueButton() {
+        return $(continueButtonLocator);
     }
 
-    public WebElement getFirstNameInput() {
-        return driver.findElement(firstNameInputLocator);
+    public SelenideElement getFirstNameInput() {
+        return $(firstNameInputLocator);
     }
 
-    public WebElement getLastNameInput() {
-        return driver.findElement(lastNameInputLocator);
+    public SelenideElement getLastNameInput() {
+        return $(lastNameInputLocator);
     }
 
-    public WebElement getZipCodeInput() {
-        return driver.findElement(zipCodeInputLocator);
+    public SelenideElement getZipCodeInput() {
+        return $(zipCodeInputLocator);
     }
 
     public void addCartInformation() {
-        getFirstNameInput().sendKeys("Duke");
-        getLastNameInput().sendKeys("Poul");
-        getZipCodeInput().sendKeys("453");
+        getFirstNameInput().setValue("Duke");
+        getLastNameInput().setValue("Poul");
+        getZipCodeInput().setValue("453");
         getContinueButton().click();
     }
 }

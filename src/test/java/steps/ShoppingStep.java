@@ -1,13 +1,12 @@
 package steps;
 
 import baseEntities.BaseStep;
-import org.openqa.selenium.WebDriver;
 import pages.*;
 
 public class ShoppingStep extends BaseStep {
 
-    public ShoppingStep(WebDriver driver) {
-        super(driver);
+    public ShoppingStep() {
+        super();
     }
 
     public InventoryPage successShopping() {
