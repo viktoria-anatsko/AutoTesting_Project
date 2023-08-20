@@ -30,9 +30,9 @@ public class LoginPage extends BasePage {
         return waitService.waitForExists(pswInputLocator);
     }
 
-    public boolean isPswInputDisplayed() {
-        return waitService.waitForVisibility(getPswInput()).isDisplayed();
-    }
+//    public boolean isPswInputDisplayed() {
+//        return waitService.waitForVisibility(getPswInput()).isDisplayed();
+//    }
 
     public WebElement getLogInButton() {
         return driver.findElement(logInButtonLocator);
