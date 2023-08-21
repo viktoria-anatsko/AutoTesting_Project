@@ -2,7 +2,7 @@ package pages;
 
 import baseEntities.BasePage;
 import elements.CheckBox;
-import elements.TableRadioButtons;
+import elements.RadioButton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +12,7 @@ public class EditProjectPage extends BasePage {
 
     private final By headerTitleLabelLocator = By.id("content-header");
     private final By projectCheckBoxLocator = By.id("show_announcement");
-    private final By radioButtonTableLocator = By.xpath("//div[@class='tab tab1  dirty-trackable']/div[7]");
+    private final By projectTypeRadioButtonLocator = By.name("suite_mode");
 
     public EditProjectPage(WebDriver driver) {
         super(driver);
@@ -35,7 +35,7 @@ public class EditProjectPage extends BasePage {
         return new CheckBox(driver, projectCheckBoxLocator);
     }
 
-    public TableRadioButtons getRadioButtonTable() {
-        return new TableRadioButtons(driver, radioButtonTableLocator);
+    public RadioButton getProjectType() {
+        return new RadioButton(driver, projectTypeRadioButtonLocator);
     }
 }

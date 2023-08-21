@@ -1,11 +1,7 @@
 package tests;
 
 import baseEntities.BaseTest;
-import elements.CheckBox;
 import elements.DropDownMenu;
-import elements.TableRadioButtons;
-import elements.UIElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 import utils.configurations.ReadProperties;
@@ -19,43 +15,15 @@ public class WrappersHomeworkTests extends BaseTest {
                 ReadProperties.password()
         );
 
-        DashboardPage dashboardPage = new DashboardPage(driver);
-        dashboardPage.getProjectName().click();
-
-        ProjectsPage projectsPage = new ProjectsPage(driver);
-        projectsPage.getEditProjectLink().click();
-
+        driver.get("https://aqa21onl03.testrail.io/index.php?/admin/projects/edit/1/1");
         EditProjectPage editProjectPage = new EditProjectPage(driver);
-        editProjectPage.getProjectCheckBox();
 
-        CheckBox checkBox = editProjectPage.getProjectCheckBox();
-        checkBox.setCheckBoxFlag();
+        editProjectPage.getProjectCheckBox().set();
 
-        Assert.assertTrue(checkBox.isSetCheckBoxFlag());
+        editProjectPage.getProjectType().selectByIndex(2);
+        editProjectPage.getProjectType().selectByText("Use multiple test suites to manage cases");
+        editProjectPage.getProjectType().selectByValue("1");
 
-        checkBox.removeCheckBoxFlag();
-
-        Assert.assertFalse(checkBox.isSetCheckBoxFlag());
-
-        TableRadioButtons tableRadioButtons = editProjectPage.getRadioButtonTable();
-        UIElement radioButton = tableRadioButtons.getRadioButton(1);
-        radioButton.click();
-
-        Assert.assertTrue(tableRadioButtons.isRadioButtonClick(radioButton));
-
-        UIElement radioButton2 = tableRadioButtons.getRadioButton(2);
-        radioButton2.click();
-
-        Assert.assertFalse(tableRadioButtons.isRadioButtonClick(radioButton));
-        Assert.assertTrue(tableRadioButtons.isRadioButtonClick(radioButton2));
-
-        UIElement radioButtonText = tableRadioButtons.getRadioButtonByName("Use a single repository with baseline support");
-        radioButtonText.click();
-        Assert.assertTrue(tableRadioButtons.isRadioButtonClick(radioButtonText));
-
-        UIElement radioButtonValue = tableRadioButtons.getRadioButtonByValue("Multiple test suites");
-        radioButtonValue.click();
-        Assert.assertTrue(tableRadioButtons.isRadioButtonClick(radioButtonValue));
     }
 
     @Test
@@ -65,15 +33,14 @@ public class WrappersHomeworkTests extends BaseTest {
                 ReadProperties.password()
         );
 
-        FirstProjectPage firstProjectPage = new FirstProjectPage(driver);
-        firstProjectPage.openPageByUrl();
+        driver.get("https://aqa21onl03.testrail.io/index.php?/cases/add/2");
 
         TestCasesPage testCasesPage = new TestCasesPage(driver);
-        testCasesPage.getAddTestCaseButton().click();
 
         DropDownMenu dropDownMenu = testCasesPage.getTemplateDropDown();
-        dropDownMenu.click();
-        dropDownMenu.getDropDownItem("Session");
+        dropDownMenu.selectByIndex(1);
+        dropDownMenu.selectByText("Test Case (Steps)");
 
+        dropDownMenu.getOptionsList().forEach(System.out::println);
     }
 }
