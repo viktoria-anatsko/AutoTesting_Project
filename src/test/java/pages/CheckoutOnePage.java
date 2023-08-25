@@ -46,6 +46,9 @@ public class CheckoutOnePage extends InventoryPage {
         getFirstNameInput().sendKeys("Duke");
         getLastNameInput().sendKeys("Poul");
         getZipCodeInput().sendKeys("453");
+    }
+
+    public void clickContinueButton() {
         getContinueButton().click();
     }
 }
