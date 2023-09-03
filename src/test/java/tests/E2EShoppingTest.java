@@ -10,13 +10,12 @@ public class E2EShoppingTest extends BaseTest {
     public void successShoppingTest() {
                 authorizationStep.successAuthorization(
                         ReadProperties.username(), ReadProperties.password()
-                ).isPageOpened();
+                );
 
-        shoppingStep.successShopping()
-                .shoppingCartContainerPage.isPageOpened();
-        shoppingStep.cartCheckout().isPageOpened();
-        shoppingStep.purchaseConfirmation().isPageOpened();
-        shoppingStep.successCartInformation().isPageOpened();
+        shoppingStep.successShopping();
+        shoppingStep.cartCheckout();
+        shoppingStep.purchaseConfirmation();
+        shoppingStep.successCartInformation();
         shoppingStep.successFinishShopping().isPageOpened();
     }
 }
