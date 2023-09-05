@@ -11,8 +11,8 @@ public class DataHelper {
 
     public static User getAdminUser() {
         User user = new User();
-        user.setEmail(ReadProperties.username());
-        user.setPassword(ReadProperties.password());
+//        user.setEmail(ReadProperties.username());
+//        user.setPassword(ReadProperties.password());
 
         logger.info(user.toString());
         return user;
